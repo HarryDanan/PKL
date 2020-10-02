@@ -5,7 +5,7 @@
     <!-- Content Header (Page header) -->
     <section class="content-header">
       <h1>
-        <?= $title; ?>
+        <!-- <?= $title; ?> -->
         <!-- <small>Control panel</small> -->
       </h1>
       <!--  -->
@@ -36,14 +36,22 @@
               </div>
           <?php
             endif;
+            if(isset($_SESSION['update_gagal'])){
+          ?>
+              <div class="alert alert-danger">
+                <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+                  <strong>Gagal!</strong> <?php echo $notif; ?>
+              </div>
+          <?php
+            }
           ?>
 
           <div class="panel panel-primary">
-            <div class="panel-heading">Data Tugas Akhir</div>
+            <div class="panel-heading"><h4>Data Tugas Akhir</h4></div>
             <div class="panel-body">
               <div class="col-md-12" style="padding-bottom: 15px;">
                 <a href="<?php echo base_url('upload/formtambah'); ?>">
-                  <button type="button" class="btn btn-primary"><span class="glyphicon glyphicon-plus"></span> Tambah Data</button> 
+                  <button type="button" class="btn btn-primary"><span class="fa fa-cloud-upload"></span> Submit Dokumen</button> 
                 </a>
               </div>
 
@@ -54,7 +62,7 @@
                       <tr>
                         <th>#</th>
                         <th>Judul</th>
-                        <th>Deskripsi</th>
+                        <th>Tipe Dokumen</th>
                         <th>File Dokumen</th>
                         <th>Status</th>
                         <th>Nilai</th>
@@ -69,14 +77,14 @@
                           <tr>
                             <td><?php echo $no; ?></td>
                             <td><?= $db['judul']; ?></td>
-                            <td><?= $db['deskripsi']; ?></td>
+                            <td><?= $db['tipe_file']; ?></td>
                             <td><?= $db['file']; ?></td>
                             <td><?= $db['status']; ?></td>
                             <td><?= $db['nilai']; ?></td>
                             <td>
-                              <a href="<?php echo base_url().'upload/download_file/'.$db['id']; ?>"><button class="btn btn-success btn-xs"><span class="glyphicon glyphicon-download-alt"></button></span></a>
-                              <a href="<?php echo base_url().'upload/formedit/'.$db['id']; ?>"><button type="button" class="btn btn-default btn-xs"><span class="glyphicon glyphicon-pencil" aria-hidden="true"></span></button></a>
-                              <a href="<?php echo base_url().'upload/hapusdata/'.$db['id']; ?>" onclick="return confirm('Anda yakin hapus ?')"><button type="button" class="btn btn-danger btn-xs"><span class="glyphicon glyphicon-remove"></span></button></a>
+                              <a href="<?php echo base_url().'upload/download_file/'.$db['id']; ?>"><button class="btn btn-success btn-sm"><span class="fa fa-cloud-download"></button></span></a>
+                              <a href="<?php echo base_url().'upload/formedit/'.$db['id']; ?>"><button type="button" class="btn btn-warning btn-sm"><span class="fa fa-edit" aria-hidden="true"></span></button></a>
+                              <a href="<?php echo base_url().'upload/hapusdata/'.$db['id']; ?>" onclick="return confirm('Anda yakin hapus ?')"><button type="button" class="btn btn-danger btn-sm"><span class="glyphicon glyphicon-remove"></span></button></a>
                             </td>
                           </tr>
                       <?php

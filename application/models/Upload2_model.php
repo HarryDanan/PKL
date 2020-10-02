@@ -25,6 +25,8 @@ class Upload2_model extends CI_Model
                     'kompetensi' => $this->input->post('kompetensi'),
 					'tipe_file' => $this->input->post('tipe_file'),
 					'email' => $this->input->post('email'),
+					'status' => $this->input->post('status'),
+					'nim' => $this->input->post('nim'),
 				];
 
 		$this->db->insert('berkas', $data);
@@ -36,10 +38,12 @@ class Upload2_model extends CI_Model
 		return $query->row_array();
 	}
 
-	public function update_()
+	public function update_($id)
 	{
 		// $id = ['id' => $this->input->post('id')];
 		
+	
+
 		$data = [
 					
 
@@ -48,10 +52,14 @@ class Upload2_model extends CI_Model
 					'pembimbing1'   => $this->input->post('pembimbing1'),
 					'pembimbing2'   => $this->input->post('pembimbing2'),
                     'kompetensi'    => $this->input->post('kompetensi'),
-                    'tipe_file'     => $this->input->post('tipe_file'),
+					'tipe_file'     => $this->input->post('tipe_file'),
+		
 				];
 
-		$this->db->update('berkas', $data);
+				$this->db->where('id',$id);
+				$this->db->update('berkas', $data);	
+				
+		
 	}
 
 	public function hapus_($id)

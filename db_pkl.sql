@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Nov 30, 2019 at 08:43 AM
+-- Generation Time: Dec 02, 2019 at 05:39 AM
 -- Server version: 10.4.8-MariaDB
 -- PHP Version: 7.1.33
 
@@ -39,16 +39,17 @@ CREATE TABLE `berkas` (
   `email` text NOT NULL,
   `nilai` int(100) NOT NULL,
   `status` varchar(200) NOT NULL,
-  `tipe_file` varchar(200) NOT NULL
+  `tipe_file` varchar(200) NOT NULL,
+  `nim` int(100) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `berkas`
 --
 
-INSERT INTO `berkas` (`id`, `judul`, `deskripsi`, `pembimbing1`, `pembimbing2`, `kompetensi`, `file`, `email`, `nilai`, `status`, `tipe_file`) VALUES
-(8, '2222222222222222222222', 'asdasdasd                asdas', 'a', 'a', 'ab', '', 'ukirangamer@gmail.com', 0, '', 'Proposal'),
-(9, 'abbbbb', 'bbbb', 'bbbbasadcc', 'ascascsac', 'ascascsac', '', 'ukirangamer@gmail.com', 0, '', 'Skripsi');
+INSERT INTO `berkas` (`id`, `judul`, `deskripsi`, `pembimbing1`, `pembimbing2`, `kompetensi`, `file`, `email`, `nilai`, `status`, `tipe_file`, `nim`) VALUES
+(64, 'Skripsi 1', 'Skripsi1', 'Pembimbing 1', 'Pembimbing 2', 'RPL', 'SKRIPSI_FORMAT_LENGKAP__21.docx', 'ukirangamer@gmail.com', 0, 'BELUM DIPERIKSA', 'Proposal', 0),
+(65, 'Skripsi 2', 'Skripsi 2', 'Skripsi 2', 'Skripsi 2', 'Skripsi 2', 'JURNAL_SKRIPSI1.docx', 'ukirangamer@gmail.com', 0, 'BELUM DIPERIKSA', 'Skripsi', 0);
 
 -- --------------------------------------------------------
 
@@ -99,7 +100,7 @@ CREATE TABLE `mahasiswa` (
 INSERT INTO `mahasiswa` (`id_mahasiswa`, `nama_mahasiswa`, `nim`, `email`, `image`, `password`, `is_active`, `date_created`) VALUES
 (4, 'Mahasiswa', 1608561020, 'mahasiswa@gmail.com', 'user8-128x128.jpg', '$2y$10$fSw7BA7hDd8O3Fwmtr/zHeW2m6sGYIh5ssKco4jeMWibtrAfm1KJi', 1, 1572964788),
 (8, 'Afif Ubaidillah', 1608561010, 'afifubaidillah.unud1@gmail.com', 'default.jpg', '$2y$10$l5GmDH0jqd4M4/XZFyCoK.o6kMqp1LhK2Ma/sVuGtJCfuzpMdgEua', 1, 1573569601),
-(10, 'a', 1608561056, 'ukirangamer@gmail.com', 'default.jpg', '$2y$10$vVamXr2uhsF2v1Qsifw3h.oTLepp29bNdy5DtZiEIUghRRSM.t5HS', 1, 1573645614);
+(10, 'Made Harry Dananjaya Adiartika', 1608561056, 'ukirangamer@gmail.com', 'default.jpg', '$2y$10$vVamXr2uhsF2v1Qsifw3h.oTLepp29bNdy5DtZiEIUghRRSM.t5HS', 1, 1573645614);
 
 -- --------------------------------------------------------
 
@@ -158,7 +159,7 @@ ALTER TABLE `user_token`
 -- AUTO_INCREMENT for table `berkas`
 --
 ALTER TABLE `berkas`
-  MODIFY `id` int(200) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `id` int(200) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=66;
 
 --
 -- AUTO_INCREMENT for table `dosen`
